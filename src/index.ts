@@ -1,39 +1,45 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 /**
  * HTTP GET Request
+ * @param baseUrl
  * @param path
- * @returns Resolved Data
+ * @param query Optional
+ * @returns AxiosResponse
  */
-export async function getRequest<T = any>(baseUrl: string, path: string, query?: any): Promise<T> {
-  return (await axios.get<T>(`${baseUrl}${path}${query ? `?${String(new URLSearchParams(query))}` : ''}`))
-    .data;
+export function getRequest<T = any>(baseUrl: string, path: string, query?: any): Promise<AxiosResponse<T>> {
+  return axios.get<T>(`${baseUrl}${path}${query ? `?${String(new URLSearchParams(query))}` : ''}`);
 }
 
 /**
  * HTTP POST Request
+ * @param baseUrl
  * @param path
- * @returns Resolved Data
+ * @param body Optional
+ * @returns AxiosResponse
  */
-export async function postRequest<T>(baseUrl: string, path: string, body?: any): Promise<T> {
-  return (await axios.post<T>(`${baseUrl}${path}`, body)).data;
+export function postRequest<T>(baseUrl: string, path: string, body?: any): Promise<AxiosResponse<T>> {
+  return axios.post<T>(`${baseUrl}${path}`, body);
 }
 
 /**
  * HTTP PUT Request
+ * @param baseUrl
  * @param path
- * @returns Resolved Data
+ * @param body Optional
+ * @returns AxiosResponse
  */
-export async function putRequest<T>(baseUrl: string, path: string, body?: any): Promise<T> {
-  return (await axios.put<T>(`${baseUrl}${path}`, body)).data;
+export function putRequest<T>(baseUrl: string, path: string, body?: any): Promise<AxiosResponse<T>> {
+  return axios.put<T>(`${baseUrl}${path}`, body));
 }
 
 /**
  * HTTP DELETE Request
+ * @param baseUrl
  * @param path
- * @returns Resolved Data
+ * @param query Optional
+ * @returns AxiosResponse
  */
-export async function deleteRequest<T = any>(baseUrl: string, path: string, query?: any): Promise<T> {
-  return (await axios.delete<T>(`${baseUrl}${path}${query ? `?${String(new URLSearchParams(query))}` : ''}`))
-    .data;
+export function deleteRequest<T = any>(baseUrl: string, path: string, query?: any): Promise<AxiosResponse<T>> {
+  return axios.delete<T>(`${baseUrl}${path}${query ? `?${String(new URLSearchParams(query))}` : ''}`);
 }
