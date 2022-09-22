@@ -1,6 +1,6 @@
 {
   "name": "@heptacode/http-request",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Pre-configured HTTP Request",
   "keywords": [
     "fetch",
