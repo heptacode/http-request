@@ -5,6 +5,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
  * @param baseUrl
  * @param path
  * @param query Optional
+ * @param config Optional
  * @returns AxiosResponse
  */
 export function getRequest<T = any>(baseUrl: string, path: string, query?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
@@ -16,6 +17,7 @@ export function getRequest<T = any>(baseUrl: string, path: string, query?: any, 
  * @param baseUrl
  * @param path
  * @param body Optional
+ * @param config Optional
  * @returns AxiosResponse
  */
 export function postRequest<T>(baseUrl: string, path: string, body?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
@@ -27,6 +29,7 @@ export function postRequest<T>(baseUrl: string, path: string, body?: any, config
  * @param baseUrl
  * @param path
  * @param body Optional
+ * @param config Optional
  * @returns AxiosResponse
  */
 export function putRequest<T>(baseUrl: string, path: string, body?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
@@ -38,6 +41,7 @@ export function putRequest<T>(baseUrl: string, path: string, body?: any, config?
  * @param baseUrl
  * @param path
  * @param query Optional
+ * @param config Optional
  * @returns AxiosResponse
  */
 export function deleteRequest<T = any>(baseUrl: string, path: string, query?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
