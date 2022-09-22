@@ -19,8 +19,8 @@
   "author": "heptacode <admin@hyunwoo.kim> (https://hyunwoo.kim)",
   "exports": {
     ".": {
-      "import": "dist/index.js",
-      "require": "dist/index.module.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.module.js"
     }
   },
   "main": "dist/index.js",
