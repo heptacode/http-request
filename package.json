@@ -17,12 +17,6 @@
   },
   "license": "MIT",
   "author": "heptacode <admin@hyunwoo.kim> (https://hyunwoo.kim)",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.module.js"
-    }
-  },
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
@@ -33,7 +27,8 @@
     "build": "node .scripts/build.mjs"
   },
   "dependencies": {
-    "axios": "^0.27"
+    "axios": "^0.27",
+    "prettier": "^2.7.1"
   },
   "devDependencies": {
     "@types/node": "^18.7",

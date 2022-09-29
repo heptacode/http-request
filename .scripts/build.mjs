@@ -3,30 +3,26 @@
 import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
 import { build as esbuild } from 'esbuild';
 import { execa } from 'execa';
-import { readFile } from 'node:fs/promises';
+import { readFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 
 const pkgRaw = await readFile(
   path.join(process.cwd(), 'package.json'),
   'utf8'
 );
-const { dependencies = {}, devDependencies = {} } = JSON.parse(pkgRaw);
+const { dependencies = {} } = JSON.parse(pkgRaw);
 
-const external = [
-  ...Object.keys(dependencies),
-  ...Object.keys(devDependencies),
-];
+const external = [...Object.keys(dependencies)];
 
 async function build(options = {}) {
+  await rm(path.join(process.cwd(), 'dist'), { force: true, recursive: true });
   await execa('yarn', ['run', 'tsc']);
   return esbuild({
     entryPoints: ['src/index.ts'],
     bundle: true,
     minify: true,
     external,
-    plugins: [
-      pnpPlugin(),
-    ],
+    plugins: [pnpPlugin()],
     ...options,
   });
 }
