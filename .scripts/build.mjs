@@ -28,6 +28,6 @@ async function build(options = {}) {
 }
 
 await Promise.all([
-  build({ format: 'cjs', outfile: 'dist/index.js' }),
-  build({ format: 'esm', outfile: 'dist/index.module.js' }),
+  build({ format: 'cjs', outfile: 'dist/index.cjs' }),
+  build({ format: 'esm', outfile: 'dist/index.mjs' }),
 ]);

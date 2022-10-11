@@ -1,6 +1,6 @@
 {
   "name": "@heptacode/http-request",
-  "version": "0.1.5",
+  "version": "0.2.1",
   "description": "Pre-configured HTTP Request",
   "keywords": [
     "fetch",
@@ -17,8 +17,13 @@
   },
   "license": "MIT",
   "author": "heptacode <admin@hyunwoo.kim> (https://hyunwoo.kim)",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -37,5 +42,5 @@
     "execa": "^6.1",
     "typescript": "^4.8"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.2.4"
 }
