@@ -7,7 +7,11 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
  * @param config Optional
  * @returns AxiosResponse
  */
-export function getRequest<T = any>(url: string, query?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+export function getRequest<T = any>(
+  url: string,
+  query?: any,
+  config?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> {
   return axios.get<T>(`${url}${query ? `?${String(new URLSearchParams(query))}` : ''}`, config);
 }
 
@@ -18,8 +22,27 @@ export function getRequest<T = any>(url: string, query?: any, config?: AxiosRequ
  * @param config Optional
  * @returns AxiosResponse
  */
-export function postRequest<T>(url: string, body?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+export function postRequest<T>(
+  url: string,
+  body?: any,
+  config?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> {
   return axios.post<T>(`${url}`, body, config);
+}
+
+/**
+ * HTTP PATCH Request
+ * @param url
+ * @param body Optional
+ * @param config Optional
+ * @returns AxiosResponse
+ */
+export function patchRequest<T>(
+  url: string,
+  body?: any,
+  config?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> {
+  return axios.patch<T>(`${url}`, body, config);
 }
 
 /**
@@ -29,7 +52,11 @@ export function postRequest<T>(url: string, body?: any, config?: AxiosRequestCon
  * @param config Optional
  * @returns AxiosResponse
  */
-export function putRequest<T>(url: string, body?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+export function putRequest<T>(
+  url: string,
+  body?: any,
+  config?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> {
   return axios.put<T>(`${url}`, body, config);
 }
 
@@ -40,6 +67,10 @@ export function putRequest<T>(url: string, body?: any, config?: AxiosRequestConf
  * @param config Optional
  * @returns AxiosResponse
  */
-export function deleteRequest<T = any>(url: string, query?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+export function deleteRequest<T = any>(
+  url: string,
+  query?: any,
+  config?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> {
   return axios.delete<T>(`${url}${query ? `?${String(new URLSearchParams(query))}` : ''}`, config);
 }
